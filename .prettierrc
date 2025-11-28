@@ -1,0 +1,5 @@
+{
+  "angularBracketSpacing": true,
+  "singleAttributePerLine": false,
+  "htmlWhitespaceSensitivity": "ignore"
+}

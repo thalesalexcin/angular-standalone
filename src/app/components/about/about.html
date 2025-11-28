@@ -1,0 +1,174 @@
+<h2>Interpolation</h2>
+<h3>Interpoler un objet</h3>
+<p>{{ stagiaire | json }}</p>
+<ul>
+  <li>{{ stagiaire.num }}</li>
+  <li>{{ stagiaire['nom'] }}</li>
+  <li>{{ stagiaire['prenom'] }}</li>
+</ul>
+<ul>
+  <li>{{ stagiaire2.num }}</li>
+  <li>{{ stagiaire2['nom'] }}</li>
+  <li>{{ stagiaire2['prenom'] ?? 'Prénom non défini' }}</li>
+</ul>
+<h3>Interpoler un tableau</h3>
+<ul>
+  <li>{{ numbers[0] }}</li>
+  <li>{{ numbers['1'] }}</li>
+  <li>{{ numbers['2'] }}</li>
+</ul>
+<h3>Interpoler une méthode (déconseillé)</h3>
+<p>
+  {{ afficherBonjour() }}
+</p>
+<h2>Property binding</h2>
+<p [textContent]="title"></p>
+<p>{{ title }}</p>
+<h3>Event binding</h3>
+<div>
+  <button (click)="alertBonjour()">Dire bonjour</button>
+</div>
+<div>
+  <button [disabled]="isDisabled" (click)="toggleButton()">Bouton 1</button>
+  <button [disabled]="!isDisabled" (click)="toggleButton()">Bouton 2</button>
+</div>
+<h4>L'objet Event</h4>
+<div>
+  <label for="texte">Votre texte</label>
+  <input type="text" id="texte" (input)="afficherText($event)" />
+</div>
+<h2>Control flow syntax (CFS)</h2>
+<h3>Boucle for</h3>
+<ul>
+  @for (item of numbers; let i = $index; track i) {
+    <li>{{ $first }} : {{ $last }} : {{ $even }} : {{ $odd }} : {{ i }} : {{ item }}</li>
+  } @empty {
+    <li>Liste vide</li>
+  }
+</ul>
+<ul>
+  @for (st of stagiaires; track $index) {
+    <li>{{ st.prenom }} {{ st.nom }}</li>
+  }
+</ul>
+<ul>
+  @for (elt of stagiaire | keyvalue; track $index) {
+    <li>{{ elt.key }} {{ elt.value }}</li>
+  }
+</ul>
+<h3>Condition avec if</h3>
+@if (numbers[0] % 2 == 0) {
+  <p>{{ numbers[0] }} est pair</p>
+}
+@if (numbers[1] % 2 == 0) {
+  <p>{{ numbers[1] }} est pair</p>
+} @else {
+  <p>{{ numbers[1] }} est impair</p>
+}
+<ul>
+  @for (v of numbers; track $index) {
+    @if (v % 2 == 0) {
+      <li>{{ v }} est pair</li>
+    } @else {
+      <li>{{ v }} est impair</li>
+    }
+  }
+</ul>
+<ul>
+  @for (v of numbers; track $index) {
+    <li>{{ v }} {{ v % 2 == 0 ? 'pair' : 'impair' }}</li>
+  }
+</ul>
+<ul>
+  @for (m of moyennes; track $index) {
+    @if (m < 10) {
+      <li>{{ m }} : échec</li>
+    } @else if (m < 13) {
+      <li>{{ m }} : moyen</li>
+    } @else if (m < 16) {
+      <li>{{ m }} : bien</li>
+    } @else {
+      <li>{{ m }} : très bien</li>
+    }
+  }
+</ul>
+<h3>Condition avec switch</h3>
+<ul>
+  @for (n of numbers; track $index) {
+    <li>
+      {{ n }}
+      @switch (n) {
+        @case (1) {
+          un
+        }
+        @case (2) {
+          deux
+        }
+        @case (3) {
+          trois
+        }
+        @case (4) {
+          quatre
+        }
+        @default {
+          autre
+        }
+      }
+    </li>
+  }
+</ul>
+<h3>Exemple avec les directives structurelles de CommonModule</h3>
+<ul>
+  <li *ngFor="let elt of numbers">
+    {{ elt }}
+  </li>
+</ul>
+<h3>ngStyle</h3>
+<p [ngStyle]="{ color: couleur, backgroundColor: bgCouleur }">
+  {{ title }}
+</p>
+<p [ngStyle]="style">
+  {{ title }}
+</p>
+<h3>ngClass</h3>
+<p [ngClass]="{ rouge: title.length > 10 }">
+  {{ title }}
+</p>
+<p
+  [ngClass]="{
+    rouge: title.length > 10,
+    bleu: title.length <= 10,
+  }"
+>
+  {{ title }}
+</p>
+<p
+  [ngClass]="{
+    rouge: title.length > 10,
+    bleu: title.length <= 10,
+    gras: title.startsWith('a'),
+  }"
+>
+  {{ title }}
+</p>
+<p [ngClass]="title.length > 0 ? 'rouge' : 'bleu'">
+  {{ title }}
+</p>
+<ul>
+  @for (v of numbers; track $index) {
+    <li [ngClass]="v % 2 == 0 ? 'bleu' : 'rouge'">
+      {{ v }}
+    </li>
+  }
+</ul>
+
+<h2>Liens avec paramètres</h2>
+<h3>paramMap</h3>
+<p>
+  <a [routerLink]="['/stagiaire', lastname, firstname]"> Apprendre plus sur Mitroglou </a>
+</p>
+
+<h3>QueryParamMap</h3>
+<p>
+  <a routerLink="/adresse" [queryParams]="{ cp: codePostal, ville }"> Visitez Toulouse </a>
+</p>

@@ -1,0 +1,13 @@
+<div class="text-center">
+  <h1>Navigation Tableau</h1>
+
+  @if (error == '') {
+    <h2>Current: {{ currentValue }}</h2>
+    <div class="row">
+      <a class="col" [routerLink]="['/tableau', previous]">Previous</a>
+      <a class="col" [routerLink]="['/tableau', next]">Next</a>
+    </div>
+  } @else {
+    <h2 class="alert alert-danger">{{ error }}</h2>
+  }
+</div>

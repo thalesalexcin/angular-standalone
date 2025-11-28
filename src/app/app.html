@@ -1,6 +1,7 @@
-<div style="text-align: center;">
-    <h1>
-        Welcome to {{ title }}!
-    </h1>
-    ...
+<div style="text-align: center">
+  <app-header />
+  <app-menu />
+  <!-- permet d'indiquer à Angular l'emplacement
+   des composants demandés dans la barre d'adresse -->
+  <router-outlet></router-outlet>
 </div>
