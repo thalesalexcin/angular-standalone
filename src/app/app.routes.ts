@@ -8,15 +8,21 @@ import { AdresseComponent } from './components/adresse/adresse';
 import { StagiaireComponent } from './components/stagiaire/stagiaire';
 import { CalculComponent } from './components/calcul/calcul';
 import { TableauComponent } from './components/tableau/tableau';
+import { NotFoundComponent } from './components/not-found/not-found';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'about', component: AboutComponent },
   { path: 'adresse', component: AdresseComponent },
+  { path: 'address', redirectTo: '/adresse' },
   { path: 'stagiaire/:nom/:prenom', component: StagiaireComponent },
   { path: 'calcul/:op', component: CalculComponent },
   { path: 'tableau/:indice', component: TableauComponent },
   { path: 'observable', component: ObservableComponent },
   { path: 'subject', component: SubjectComponent },
   { path: 'computed', component: ComputedComponent },
+
+  //{ path: '**', component: NotFoundComponent },
+  { path: 'not-found', component: NotFoundComponent },
+  { path: '**', redirectTo: 'not-found' },
 ];
