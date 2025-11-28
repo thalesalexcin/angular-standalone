@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, RouterLink } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-tableau',
@@ -15,7 +15,10 @@ export class TableauComponent implements OnInit {
   previous = 0;
   error = '';
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+  ) {}
 
   ngOnInit(): void {
     this.route.paramMap.subscribe((params) => {
@@ -29,5 +32,12 @@ export class TableauComponent implements OnInit {
       this.next = (this.current + 1) % this.numbers.length;
       this.currentValue = this.numbers[this.current];
     });
+  }
+
+  goToNext() {
+    this.router.navigate(['/tableau', this.next]);
+  }
+  goToPrevious() {
+    this.router.navigate(['/tableau', this.previous]);
   }
 }

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import Stagiaire from '../../classes/stagiaire';
 import { CommonModule } from '@angular/common';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-about',
@@ -49,5 +49,23 @@ export class AboutComponent {
     console.log((event as InputEvent).data);
 
     console.log((event.target as HTMLInputElement).value);
+  }
+
+  constructor(private router: Router) {}
+
+  goToStagiaire() {
+    this.router.navigateByUrl('/stagiaire/John/Wick');
+  }
+
+  goToStagiaireV2() {
+    this.router.navigate(['/stagiaire', this.firstname, this.lastname]);
+  }
+  goToAdresse() {
+    this.router.navigate(['/adresse'], {
+      queryParams: {
+        cp: '33000',
+        ville: 'Bordeaux',
+      },
+    });
   }
 }

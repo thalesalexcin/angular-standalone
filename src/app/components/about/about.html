@@ -172,3 +172,14 @@
 <p>
   <a routerLink="/adresse" [queryParams]="{ cp: codePostal, ville }"> Visitez Toulouse </a>
 </p>
+
+<h2>REDIRECTION depuis un .ts</h2>
+<div>
+  <button (click)="goToStagiaire()">Aller au composant stagiaire</button>
+</div>
+<div>
+  <button (click)="goToStagiaireV2()">Aller au composant stagiaire NAVIGATE</button>
+</div>
+<div>
+  <button (click)="goToAdresse()">Aller à l'adresse</button>
+</div>
