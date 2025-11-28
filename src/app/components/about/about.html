@@ -183,3 +183,17 @@
 <div>
   <button (click)="goToAdresse()">Aller à l'adresse</button>
 </div>
+<h2>Pipes (CommonModule)</h2>
+<p>{{ title | uppercase }}</p>
+<p>{{ aujourdhui | date: 'dd/MM/yyyy HH:mm:ss' }}</p>
+<p>{{ aujourdhui | date: 'dd/MM/yyyy HH:mm:ss MMM' | uppercase }}</p>
+<p>{{ title | getChar }}</p>
+<p>{{ title | getChar: 2 }}</p>
+
+<ul>
+  @for (item of numbers | evenvalue; track $index) {
+    <li>
+      {{ item }}
+    </li>
+  }
+</ul>

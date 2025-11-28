@@ -1,0 +1,6 @@
+<h2>Template-driven forms</h2>
+<div>
+  <label for="nom">Nom</label>
+  <input type="text" id="nom" (input)="onInputChanged($event)" [value]="nom" />
+  <span>{{ nomSignal() }}</span>
+</div>

@@ -9,6 +9,7 @@ import { StagiaireComponent } from './components/stagiaire/stagiaire';
 import { CalculComponent } from './components/calcul/calcul';
 import { TableauComponent } from './components/tableau/tableau';
 import { NotFoundComponent } from './components/not-found/not-found';
+import { FormulaireSimpleComponent } from './components/formulaire-simple/formulaire-simple';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -21,6 +22,7 @@ export const routes: Routes = [
   { path: 'observable', component: ObservableComponent },
   { path: 'subject', component: SubjectComponent },
   { path: 'computed', component: ComputedComponent },
+  { path: 'formulaire', component: FormulaireSimpleComponent },
 
   //{ path: '**', component: NotFoundComponent },
   { path: 'not-found', component: NotFoundComponent },
