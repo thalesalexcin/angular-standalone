@@ -1,0 +1,46 @@
+<h2>Formulaire réactif (Sans FormBuilder)</h2>
+<form [formGroup]="personneForm" (ngSubmit)="afficher()">
+  <div>
+    <label for="nom">Nom</label>
+    <input type="text" id="nom" formControlName="nom" />
+    @if (nom.errors) {
+      @if (nom.errors['required']) {
+        <span>Ce champ est obligatoire</span>
+      } @else if (nom.errors['majuscule']) {
+        <span>{{ nom.errors['majuscule'] }}</span>
+      }
+    }
+  </div>
+  <div>
+    <label for="prenom">Prénom</label>
+    <input type="text" id="prenom" formControlName="prenom" />
+    @if (prenom.errors) {
+      @if (prenom.errors['required']) {
+        <span>Ce champ est obligatoire</span>
+      } @else if (prenom.errors['pattern']) {
+        <span>Pattern bizarre</span>
+      }
+    }
+  </div>
+
+  <div>
+    <label for="age">Age</label>
+    <input type="number" id="age" formControlName="age" />
+    @if (age.errors) {
+      @if (age.errors['required']) {
+        <span>Ce champ est obligatoire</span>
+      } @else if (age.errors['max']) {
+        <span> Max: {{ age.errors['max'].max }} Actual: {{ age.errors['max'].actual }}</span>
+      }
+    }
+  </div>
+  <div>
+    <button type="submit" [disabled]="personneForm.invalid">Afficher</button>
+  </div>
+</form>
+
+<ul>
+  @for (item of personnes; track $index) {
+    <li>{{ item.nom | uppercase }} {{ item.prenom | titlecase }}, {{ item.age }}</li>
+  }
+</ul>

@@ -1,0 +1,18 @@
+<h2>Calculette</h2>
+
+<form #form="ngForm">
+  <input type="number" name="value1" [(ngModel)]="value1" />
+  <input type="number" name="value2" [(ngModel)]="value2" />
+
+  <div>
+    @for (item of operators; track $index) {
+      <button (click)="onOperationClick(item)">{{ item.symbol }}</button>
+    }
+  </div>
+</form>
+<p>
+  Résultat:
+  @if (op != '') {
+    <span> {{ value1 }} {{ op }} {{ value2 }} = {{ result }} </span>
+  }
+</p>

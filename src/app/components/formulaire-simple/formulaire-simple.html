@@ -1,6 +1,45 @@
 <h2>Template-driven forms</h2>
-<div>
-  <label for="nom">Nom</label>
-  <input type="text" id="nom" [(ngModel)]="nom" />
-  <span>{{ nom }}</span>
-</div>
+<form (ngSubmit)="afficher(form)" #form="ngForm">
+  <div>
+    <label for="nom">Nom</label>
+    <input type="text" id="nom" [(ngModel)]="personne.nom" name="nom" #nom="ngModel" required />
+    @if (nom.invalid && nom.dirty) {
+      <span> Ce champ est obligatoire </span>
+    }
+  </div>
+  <div>
+    <label for="prenom">Prénom</label>
+    <input
+      type="text"
+      id="prenom"
+      [(ngModel)]="personne.prenom"
+      name="prenom"
+      required
+      #prenom="ngModel"
+    />
+    @if (prenom.invalid && prenom.dirty) {
+      <span> Ce champ est obligatoire </span>
+    }
+  </div>
+  <div>
+    <label for="age">Âge</label>
+    <input
+      type="number"
+      id="age"
+      [(ngModel)]="personne.age"
+      name="age"
+      required
+      max="120"
+      #age="ngModel"
+    />
+    @if (age.invalid && age.dirty) {
+      <span> Ce champ est obligatoire et doit contenir une valeur inférieure à 120 </span>
+    }
+  </div>
+  <button class="btn" [disabled]="form.invalid">Afficher</button>
+</form>
+<ul>
+  @for (item of personnesAjoutes; track $index) {
+    <li>{{ item.nom | uppercase }} {{ item.prenom | titlecase }}, {{ item.age }}</li>
+  }
+</ul>

@@ -10,6 +10,9 @@ import { CalculComponent } from './components/calcul/calcul';
 import { TableauComponent } from './components/tableau/tableau';
 import { NotFoundComponent } from './components/not-found/not-found';
 import { FormulaireSimpleComponent } from './components/formulaire-simple/formulaire-simple';
+import { CalculetteComponent } from './components/calculette/calculette';
+import { FormulaireReactifComponent } from './components/formulaire-reactif/formulaire-reactif';
+import { FormulaireReactifBuilderComponent } from './components/formulaire-reactif-builder/formulaire-reactif-builder';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -23,6 +26,9 @@ export const routes: Routes = [
   { path: 'subject', component: SubjectComponent },
   { path: 'computed', component: ComputedComponent },
   { path: 'formulaire', component: FormulaireSimpleComponent },
+  { path: 'calculette', component: CalculetteComponent },
+  { path: 'reactive', component: FormulaireReactifComponent },
+  { path: 'builder', component: FormulaireReactifBuilderComponent },
 
   //{ path: '**', component: NotFoundComponent },
   { path: 'not-found', component: NotFoundComponent },
