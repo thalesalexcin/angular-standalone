@@ -16,7 +16,7 @@ export class PrimeurComponent {
     quantite: 0,
   });
   nouveauProduitForm = form(this.nouveauProduit);
-
+  total: number = 0;
   produits: Produit[] = [
     { nom: 'banane', prix: 3, quantite: 10 },
     { nom: 'fraise', prix: 10, quantite: 20 },
@@ -30,5 +30,9 @@ export class PrimeurComponent {
       prix: 0,
       quantite: 0,
     });
+  }
+
+  ajouterAuPanier(event: number) {
+    this.total += event;
   }
 }

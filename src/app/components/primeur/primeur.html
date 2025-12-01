@@ -1,7 +1,11 @@
 <h2>Primeur</h2>
+
+<div>
+  <h3>Total: {{ total }}</h3>
+</div>
 <ul>
   @for (item of produits; track $index) {
-    <app-produit [produit]="item"></app-produit>
+    <app-produit [produit]="item" (onProduitAjoute)="ajouterAuPanier($event)"></app-produit>
   }
 </ul>
 
