@@ -13,6 +13,7 @@ import { FormulaireSimpleComponent } from './components/formulaire-simple/formul
 import { CalculetteComponent } from './components/calculette/calculette';
 import { FormulaireReactifComponent } from './components/formulaire-reactif/formulaire-reactif';
 import { FormulaireReactifBuilderComponent } from './components/formulaire-reactif-builder/formulaire-reactif-builder';
+import { CommentComponent } from './components/comment/comment';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -29,6 +30,7 @@ export const routes: Routes = [
   { path: 'calculette', component: CalculetteComponent },
   { path: 'reactive', component: FormulaireReactifComponent },
   { path: 'builder', component: FormulaireReactifBuilderComponent },
+  { path: 'comment', component: CommentComponent },
 
   //{ path: '**', component: NotFoundComponent },
   { path: 'not-found', component: NotFoundComponent },

@@ -1,0 +1,66 @@
+<h2>Comments TP</h2>
+<form [formGroup]="commentForm" (ngSubmit)="afficher()">
+  <div>
+    <label for="nom">Nom :</label>
+    <input type="text" id="nom" formControlName="nom" />
+  </div>
+
+  <div>
+    <label for="prenom">Prenom :</label>
+    <input type="text" id="prenom" formControlName="prenom" />
+  </div>
+
+  <div>
+    <h3>Comments</h3>
+
+    <div>
+      <button type="button" (click)="ajouterCommentaire()">Ajouter Commentaire</button>
+    </div>
+
+    <ul formArrayName="commentsControls">
+      @for (comment of comments.controls; track $index) {
+        <li [formGroupName]="$index">
+          <h4>Comment {{ $index }}</h4>
+          <div>
+            <label for="titre">Titre: </label>
+            <input type="text" id="titre" formControlName="titre" />
+          </div>
+          <div>
+            <label for="contenu">Contenu: </label>
+            <input type="text" id="contenu" formControlName="contenu" />
+          </div>
+          <div>
+            <label for="categorie">Categorie: </label>
+            <input type="text" id="categorie" formControlName="categorie" />
+          </div>
+        </li>
+      }
+    </ul>
+  </div>
+
+  <div>
+    <button>Afficher</button>
+  </div>
+</form>
+
+<ul>
+  @for (item of personComments; track $index) {
+    <li>
+      <div>{{ item.person.nom }} {{ item.person.prenom }}</div>
+      <ul>
+        @for (itemComment of item.comments; track $index) {
+          <li>
+            <div>{{ itemComment.title }} | {{ itemComment.category }}</div>
+            <div>
+              {{ itemComment.content }}
+            </div>
+          </li>
+        } @empty {
+          <li>Pas de commentaire</li>
+        }
+      </ul>
+    </li>
+  } @empty {
+    <li>Personne n'a commenté</li>
+  }
+</ul>

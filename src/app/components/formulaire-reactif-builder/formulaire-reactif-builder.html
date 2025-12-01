@@ -52,7 +52,7 @@
       <button type="button" (click)="ajouterSport()">Ajouter un sport</button>
     </div>
     @for (sport of sports.controls; track sport) {
-      <div>
+      <div formControlName="commentLine">
         <label [for]="'sport' + $index">Sport {{ $index + 1 }} : </label>
         <input type="text" [formControlName]="$index" [id]="'sport' + $index" />
         <button type="button" (click)="supprimer($index)">Supprimer</button>
