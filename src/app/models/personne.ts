@@ -9,3 +9,10 @@ export interface Personne2 {
   prenom: string;
   age: number;
 }
+
+export interface PersonneModel {
+  id: number;
+  nom: string;
+  prenom: string;
+  age: number;
+}

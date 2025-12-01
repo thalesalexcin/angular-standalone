@@ -15,6 +15,7 @@ import { FormulaireReactifComponent } from './components/formulaire-reactif/form
 import { FormulaireReactifBuilderComponent } from './components/formulaire-reactif-builder/formulaire-reactif-builder';
 import { CommentComponent } from './components/comment/comment';
 import { FormulaireSignalComponent } from './components/formulaire-signal/formulaire-signal';
+import { PersonneComponent } from './components/personne-component/personne-component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -33,6 +34,7 @@ export const routes: Routes = [
   { path: 'builder', component: FormulaireReactifBuilderComponent },
   { path: 'signal-form', component: FormulaireSignalComponent },
   { path: 'comment', component: CommentComponent },
+  { path: 'personne', component: PersonneComponent },
 
   //{ path: '**', component: NotFoundComponent },
   { path: 'not-found', component: NotFoundComponent },
