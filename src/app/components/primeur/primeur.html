@@ -1,0 +1,14 @@
+<h2>Primeur</h2>
+<ul>
+  @for (item of produits; track $index) {
+    <app-produit [produit]="item"></app-produit>
+  }
+</ul>
+
+<form (ngSubmit)="ajouter()">
+  <input type="text" id="nom" [field]="nouveauProduitForm.nom" />
+  <input type="number" id="prix" [field]="nouveauProduitForm.prix" />
+  <input type="number" id="quantite" [field]="nouveauProduitForm.quantite" />
+
+  <button>Ajouter</button>
+</form>
