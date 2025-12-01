@@ -1,0 +1,13 @@
+<h3>Clavier Virtuelle</h3>
+<div class="container">
+  <div class="row">
+    @for (item of lettres; track $index) {
+      <div class="col-2">
+        <app-touche [value]="item" (touched)="onTouched($event)"></app-touche>
+      </div>
+    }
+  </div>
+  <div class="row">
+    <textarea class="offset-2 col-8" [(ngModel)]="currentText"></textarea>
+  </div>
+</div>
