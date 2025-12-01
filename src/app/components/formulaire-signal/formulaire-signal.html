@@ -1,0 +1,20 @@
+<h2>Signal Forms</h2>
+
+<form (submit)="afficher($event)">
+  <div>
+    <label for="nom">Nom</label>
+    <input type="text" id="nom" [field]="personneForm.nom" />
+  </div>
+  <div>
+    <label for="prenom">Prénom</label>
+    <input type="text" id="prenom" [field]="personneForm.prenom" />
+  </div>
+  <div>
+    <label for="age">Age</label>
+    <input type="number" id="age" [field]="personneForm.age" />
+  </div>
+
+  <div>
+    <button>Afficher</button>
+  </div>
+</form>
