@@ -18,6 +18,7 @@ import { FormulaireSignalComponent } from './components/formulaire-signal/formul
 import { PersonneComponent } from './components/personne-component/personne-component';
 import { PereComponent } from './components/pere/pere';
 import { PrimeurComponent } from './components/primeur/primeur';
+import { ParentComponent } from './components/parent/parent';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -39,6 +40,7 @@ export const routes: Routes = [
   { path: 'personne', component: PersonneComponent },
   { path: 'pere', component: PereComponent },
   { path: 'primeur', component: PrimeurComponent },
+  { path: 'parent', component: ParentComponent },
 
   //{ path: '**', component: NotFoundComponent },
   { path: 'not-found', component: NotFoundComponent },
