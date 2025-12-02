@@ -1,16 +1,12 @@
-import { Component, input, output } from '@angular/core';
+import { Component, input, model, output } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-ville',
-  imports: [],
+  imports: [FormsModule],
   templateUrl: './ville.html',
   styleUrl: './ville.css',
 })
 export class VilleComponent {
-  value = input.required<string>();
-  //   valueOutput = output<string>();
-  valueChange = output<string>();
-  onValueInput() {
-    this.valueChange.emit(this.value());
-  }
+  value = model<string>();
 }
