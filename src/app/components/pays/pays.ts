@@ -9,7 +9,7 @@ import { VilleComponent } from '../ville/ville';
 })
 export class PaysComponent {
   villes = ['Marseille', 'Lyon', 'Paris'];
-  onVilleValueChanged(newValue: string, index: number) {
-    this.villes[index] = newValue;
-  }
+  //   onVilleValueChanged(newValue: string, index: number) {
+  //     this.villes[index] = newValue;
+  //   }
 }

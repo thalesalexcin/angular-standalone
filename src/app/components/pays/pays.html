@@ -6,6 +6,6 @@
 </div>
 <div>
   @for (item of villes; track $index) {
-    <app-ville [value]="item" (valueOutput)="onVilleValueChanged($event, $index)" />
+    <app-ville [(value)]="villes[$index]" />
   }
 </div>

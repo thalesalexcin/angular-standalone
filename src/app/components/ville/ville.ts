@@ -8,9 +8,9 @@ import { Component, input, output } from '@angular/core';
 })
 export class VilleComponent {
   value = input.required<string>();
-  valueOutput = output<string>();
-  onValueInput(event: Event) {
-    let newValue = (event.target as HTMLInputElement).value;
-    this.valueOutput.emit(newValue);
+  //   valueOutput = output<string>();
+  valueChange = output<string>();
+  onValueInput() {
+    this.valueChange.emit(this.value());
   }
 }
