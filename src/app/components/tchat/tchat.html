@@ -1,0 +1,14 @@
+<h2>Chat</h2>
+<div class="container">
+  <div class="row d-flex">
+    <input class="col-11" type="text" [(ngModel)]="newParticipantName" />
+    <button class="btn btn-dark col-1" (click)="addParticipant()">
+      <i class="fa-solid fa-plus"></i>
+    </button>
+  </div>
+  <div class="d-flex gap-2">
+    @for (item of participants; track $index) {
+      <app-participant [name]="item" />
+    }
+  </div>
+</div>

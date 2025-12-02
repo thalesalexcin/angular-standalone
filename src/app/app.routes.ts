@@ -22,6 +22,7 @@ import { ParentComponent } from './components/parent/parent';
 import { ClavierComponent } from './components/clavier/clavier';
 import { PaysComponent } from './components/pays/pays';
 import { ContainerComponent } from './components/container/container';
+import { TchatComponent } from './components/tchat/tchat';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -47,6 +48,7 @@ export const routes: Routes = [
   { path: 'clavier', component: ClavierComponent },
   { path: 'pays', component: PaysComponent },
   { path: 'container', component: ContainerComponent },
+  { path: 'chat', component: TchatComponent },
 
   //{ path: '**', component: NotFoundComponent },
   { path: 'not-found', component: NotFoundComponent },

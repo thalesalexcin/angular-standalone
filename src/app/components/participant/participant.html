@@ -1,0 +1,20 @@
+<div class="flex-column">
+  <h3>{{ name() }}</h3>
+  <div>
+    <input type="text" [(ngModel)]="nextMessage" />
+
+    <button class="btn btn-dark" (click)="sendMessage()">
+      <i class="fa-solid fa-paper-plane"></i>
+    </button>
+  </div>
+  <div>
+    <ul class="list-group d-flex flex-column">
+      @for (item of allMessages; track $index) {
+        <li class="list-group-item w-100">
+          <strong>{{ item.sender }} : </strong>
+          <span>{{ item.message }}</span>
+        </li>
+      }
+    </ul>
+  </div>
+</div>
