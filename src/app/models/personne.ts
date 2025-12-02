@@ -11,7 +11,7 @@ export interface Personne2 {
 }
 
 export interface PersonneModel {
-  id: number;
+  id?: number;
   nom: string;
   prenom: string;
   age: number;

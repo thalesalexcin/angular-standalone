@@ -41,9 +41,9 @@
 </form>
 <h3 class="text-primary my-5">Liste des personnes</h3>
 <ul>
-  @for (p of personnes; track $index) {
+  @for (p of personnes(); track $index) {
     <li>
-      {{ p.nom }} {{ p.prenom }} <button type="button" (click)="supprimer(p.id)">Supprimer</button>
+      {{ p.nom }} {{ p.prenom }} <button type="button" (click)="supprimer(p.id!)">Supprimer</button>
     </li>
   }
 </ul>
