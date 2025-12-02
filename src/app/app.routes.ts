@@ -20,6 +20,7 @@ import { PereComponent } from './components/pere/pere';
 import { PrimeurComponent } from './components/primeur/primeur';
 import { ParentComponent } from './components/parent/parent';
 import { ClavierComponent } from './components/clavier/clavier';
+import { PaysComponent } from './components/pays/pays';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -43,6 +44,7 @@ export const routes: Routes = [
   { path: 'primeur', component: PrimeurComponent },
   { path: 'parent', component: ParentComponent },
   { path: 'clavier', component: ClavierComponent },
+  { path: 'pays', component: PaysComponent },
 
   //{ path: '**', component: NotFoundComponent },
   { path: 'not-found', component: NotFoundComponent },

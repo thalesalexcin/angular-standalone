@@ -1,0 +1,11 @@
+<h2>Pays et villes</h2>
+<div>
+  @for (item of villes; track $index) {
+    {{ item }}
+  }
+</div>
+<div>
+  @for (item of villes; track $index) {
+    <app-ville [value]="item" (valueOutput)="onVilleValueChanged($event, $index)" />
+  }
+</div>
