@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, signal, viewChildren } from '@angular/core';
 import { Produit, ProduitComponent } from '../produit/produit';
 import { FormsModule } from '@angular/forms';
 import { form, Field } from '@angular/forms/signals';
@@ -10,6 +10,7 @@ import { form, Field } from '@angular/forms/signals';
   styleUrl: './primeur.css',
 })
 export class PrimeurComponent {
+  produitViews = viewChildren(ProduitComponent);
   nouveauProduit = signal<Produit>({
     nom: '',
     prix: 0,
@@ -32,7 +33,12 @@ export class PrimeurComponent {
     });
   }
 
-  ajouterAuPanier(event: number) {
-    this.total += event;
+  ajouterAuPanier(produit: Produit) {
+    let produitView = this.produitViews().find((p) => p.produit.nom == produit.nom);
+    if (produitView != null) {
+      let prix = produitView!.quantite * produitView!.produit.prix;
+      this.total += prix;
+      produitView.produit.quantite -= produitView.quantite;
+    }
   }
 }

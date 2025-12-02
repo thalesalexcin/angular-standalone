@@ -5,7 +5,7 @@
 </div>
 <ul>
   @for (item of produits; track $index) {
-    <app-produit [produit]="item" (onProduitAjoute)="ajouterAuPanier($event)"></app-produit>
+    <app-produit [produit]="item" (onProduitAjoute)="ajouterAuPanier(item)"></app-produit>
   }
 </ul>
 

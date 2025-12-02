@@ -24,7 +24,6 @@ export class ProduitComponent {
 
   ajouterAuPanier() {
     this.isDisabled = true;
-    this.produit.quantite -= this.quantite;
 
     this.onProduitAjoute.emit(this.quantite * this.produit.prix);
   }
