@@ -1,1 +1,7 @@
-<p>second works!</p>
+<h3 class="text-primary my-5">Receiver</h3>
+
+<ul>
+  @for (item of messages; track $index) {
+    <li>{{ item }}</li>
+  }
+</ul>
