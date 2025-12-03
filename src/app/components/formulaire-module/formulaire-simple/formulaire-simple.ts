@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
-import { Personne } from '../../models/personne';
 import { CommonModule } from '@angular/common';
+import { Personne } from '../../../models/personne';
 
 @Component({
   selector: 'app-formulaire-simple',

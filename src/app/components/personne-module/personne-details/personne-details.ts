@@ -1,9 +1,9 @@
 import { Component, inject, input, OnInit, viewChild } from '@angular/core';
-import { PersonneService } from '../../services/personne-service';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { PersonneFormComponent } from '../personne-form/personne-form';
-import { PersonneModel } from '../../models/personne';
+import { PersonneService } from '../../../services/personne-service';
+import { PersonneModel } from '../../../models/personne';
 
 @Component({
   selector: 'app-personne-details',

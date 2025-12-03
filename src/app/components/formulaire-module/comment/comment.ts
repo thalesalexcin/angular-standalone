@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { Personne } from '../../models/personne';
+import { Personne } from '../../../models/personne';
 
 @Component({
   selector: 'app-comment',

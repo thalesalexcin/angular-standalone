@@ -1,8 +1,8 @@
 import { Component, inject, input, OnDestroy, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { Message } from '../../models/message';
-import { ChatMessageService } from '../../services/chat-message';
 import { Subscription } from 'rxjs';
+import { Message } from '../../../models/message';
+import { ChatMessageService } from '../../../services/chat-message';
 
 @Component({
   selector: 'app-participant',

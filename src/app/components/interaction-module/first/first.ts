@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { MessageService } from '../../services/message';
+import { MessageService } from '../../../services/message';
 
 @Component({
   selector: 'app-first',
