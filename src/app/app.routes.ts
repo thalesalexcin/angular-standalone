@@ -24,6 +24,8 @@ import { AdresseComponent } from './components/routage-module/adresse/adresse';
 import { CalculComponent } from './components/routage-module/calcul/calcul';
 import { StagiaireComponent } from './components/routage-module/stagiaire/stagiaire';
 import { TableauComponent } from './components/routage-module/tableau/tableau';
+import { AuthComponent } from './components/auth/auth';
+import { authGuard } from './guards/auth-guard';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -42,7 +44,8 @@ export const routes: Routes = [
   { path: 'builder', component: FormulaireReactifBuilderComponent },
   { path: 'signal-form', component: FormulaireSignalComponent },
   { path: 'comment', component: CommentComponent },
-  { path: 'personne', component: PersonneComponent },
+  { path: 'personne', component: PersonneComponent, canActivate: [authGuard] },
+  { path: 'personne/:id', component: PersonneDetailsComponent, canActivate: [authGuard] },
   { path: 'pere', component: PereComponent },
   { path: 'primeur', component: PrimeurComponent },
   { path: 'parent', component: ParentComponent },
@@ -50,7 +53,7 @@ export const routes: Routes = [
   { path: 'pays', component: PaysComponent },
   { path: 'container', component: ContainerComponent },
   { path: 'chat', component: TchatComponent },
-  { path: 'personne/:id', component: PersonneDetailsComponent },
+  { path: 'auth', component: AuthComponent },
 
   //{ path: '**', component: NotFoundComponent },
   { path: 'not-found', component: NotFoundComponent },

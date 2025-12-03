@@ -1,0 +1,22 @@
+<h2>Sign In</h2>
+<div class="container">
+  @if (error() != null) {
+    <div class="alert alert-danger">
+      {{ error() }}
+    </div>
+  }
+
+  <form (ngSubmit)="onSubmit()">
+    <div class="row form-floating">
+      <input class="form-control" type="text" [field]="loginForm.username" />
+      <label for="username">Nom d'utilisateur</label>
+    </div>
+
+    <div class="row form-floating">
+      <input class="form-control" type="password" [field]="loginForm.password" />
+      <label for="username">Password</label>
+    </div>
+
+    <button class="btn btn-primary">Se connecter</button>
+  </form>
+</div>
