@@ -4,34 +4,29 @@ import { environment } from '../../environments/environment.development';
 import { User } from '../models/user';
 
 export abstract class GenericService<Model> {
-  private headers: HttpHeaders;
   constructor(
     protected http: HttpClient,
     protected path: string,
-  ) {
-    const user: User = JSON.parse(localStorage.getItem('user') ?? '');
-    const authorization = btoa(`${user.username}:${user.password}`);
-    this.headers = new HttpHeaders().set('Authorization', `Basic ${authorization}`);
-  }
+  ) {}
 
   findAll(): Observable<Model[]> {
-    return this.http.get<Model[]>(this.url, { headers: this.headers });
+    return this.http.get<Model[]>(this.url);
   }
 
   findById(id: number): Observable<Model> {
-    return this.http.get<Model>(this.url + '/' + id, { headers: this.headers });
+    return this.http.get<Model>(this.url + '/' + id);
   }
 
   save(p: Model): Observable<Model> {
-    return this.http.post<Model>(this.url, p, { headers: this.headers });
+    return this.http.post<Model>(this.url, p);
   }
 
   remove(id: number): Observable<void> {
-    return this.http.delete<void>(this.url + '/' + id, { headers: this.headers });
+    return this.http.delete<void>(this.url + '/' + id);
   }
 
   update(id: number, p: Model): Observable<Model> {
-    return this.http.put<Model>(this.url + '/' + id, p, { headers: this.headers });
+    return this.http.put<Model>(this.url + '/' + id, p);
   }
 
   get url(): string {
