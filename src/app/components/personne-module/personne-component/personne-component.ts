@@ -21,7 +21,7 @@ export class PersonneComponent implements OnInit {
   }
 
   supprimer(id: number) {
-    this.ps.delete(id).subscribe((res) => {
+    this.ps.remove(id).subscribe((res) => {
       this.personnes.set(this.personnes().filter((p) => p.id != id));
     });
   }
