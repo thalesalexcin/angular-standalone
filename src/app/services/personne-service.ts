@@ -2,14 +2,17 @@ import { Injectable, signal } from '@angular/core';
 import { PersonneModel } from '../models/personne';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from '../../environments/environment.development';
 
 @Injectable({
   providedIn: 'root',
 })
 export class PersonneService {
-  url = 'http://localhost:8080/ws/personnes';
+  url: string;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+    this.url = environment.BACKEND_URL + '/personnes';
+  }
 
   findAll(): Observable<PersonneModel[]> {
     return this.http.get<PersonneModel[]>(this.url);
