@@ -14,10 +14,20 @@ import { PersonneService } from '../../../services/personne-service';
 export class PersonneComponent implements OnInit {
   personnes = signal<PersonneModel[]>([]);
   ps = inject(PersonneService);
+  error = signal<string | null>(null);
   personneView = viewChild.required(PersonneFormComponent);
 
   ngOnInit(): void {
-    this.ps.findAll().subscribe((res) => this.personnes.set(res));
+    this.ps.findAll().subscribe({
+      next: (res) => {
+        this.personnes.set(res);
+        this.error.set(null);
+      },
+      error: (err) => {
+        this.error.set('Problème de recupération de données');
+        console.error(err);
+      },
+    });
   }
 
   supprimer(id: number) {
@@ -26,11 +36,16 @@ export class PersonneComponent implements OnInit {
     });
   }
 
-  onSubmit(personne: PersonneModel) {
+  ajouter(personne: PersonneModel) {
     this.ps.save(personne).subscribe({
       next: (res) => {
         this.personnes.set([...this.personnes(), res]);
-        this.personneView().personne = { age: 0, id: 0, nom: '', prenom: '' };
+        this.personneView().personne = { age: 0, nom: '', prenom: '' };
+        this.error.set(null);
+      },
+      error: (err) => {
+        this.error.set('Insertion impossible');
+        console.error(err);
       },
     });
   }

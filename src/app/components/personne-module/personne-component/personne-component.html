@@ -1,15 +1,25 @@
 <h2 class="text-primary my-5">Gestion de personnes</h2>
 <h3 class="text-primary my-5">Ajouter une nouvelle personne</h3>
 <div class="container border bg-light shadow p-5 pb-4 rounded-4">
-  <app-personne-form (outputSubmit)="onSubmit($event)" buttonLabel="Ajouter"></app-personne-form>
+  <app-personne-form (outputSubmit)="ajouter($event)" buttonLabel="Ajouter"></app-personne-form>
 </div>
 
 <h3 class="text-primary my-5">Liste des personnes</h3>
-<ul>
-  @for (p of personnes(); track $index) {
-    <li>
-      {{ p.nom }} {{ p.prenom }} <button type="button" (click)="supprimer(p.id!)">Supprimer</button>
-      <a [routerLink]="['/personne', p.id]">Détails</a>
-    </li>
-  }
-</ul>
+
+@if (error() == null) {
+  <ul>
+    @for (p of personnes(); track $index) {
+      <li>
+        {{ p.nom }} {{ p.prenom }}
+        <button type="button" (click)="supprimer(p.id!)">Supprimer</button>
+        <a [routerLink]="['/personne', p.id]">Détails</a>
+      </li>
+    } @empty {
+      <li class="erreur">La liste est vide</li>
+    }
+  </ul>
+} @else {
+  <li class="erreur text-danger">
+    {{ error() }}
+  </li>
+}
