@@ -3,10 +3,11 @@ import { PersonneModel } from '../../models/personne';
 import { PersonneService } from '../../services/personne-service';
 import { FormsModule } from '@angular/forms';
 import { find } from 'rxjs';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-personne-component',
-  imports: [FormsModule],
+  imports: [FormsModule, RouterLink],
   templateUrl: './personne-component.html',
   styleUrl: './personne-component.css',
 })

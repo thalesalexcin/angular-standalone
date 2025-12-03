@@ -23,6 +23,7 @@ import { ClavierComponent } from './components/clavier/clavier';
 import { PaysComponent } from './components/pays/pays';
 import { ContainerComponent } from './components/container/container';
 import { TchatComponent } from './components/tchat/tchat';
+import { PersonneDetailsComponent } from './components/personne-details/personne-details';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -49,6 +50,7 @@ export const routes: Routes = [
   { path: 'pays', component: PaysComponent },
   { path: 'container', component: ContainerComponent },
   { path: 'chat', component: TchatComponent },
+  { path: 'personne/:id', component: PersonneDetailsComponent },
 
   //{ path: '**', component: NotFoundComponent },
   { path: 'not-found', component: NotFoundComponent },

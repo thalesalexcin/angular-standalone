@@ -44,6 +44,7 @@
   @for (p of personnes(); track $index) {
     <li>
       {{ p.nom }} {{ p.prenom }} <button type="button" (click)="supprimer(p.id!)">Supprimer</button>
+      <a [routerLink]="['/personne', p.id]">Détails</a>
     </li>
   }
 </ul>
