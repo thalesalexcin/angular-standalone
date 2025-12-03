@@ -1,44 +1,9 @@
 <h2 class="text-primary my-5">Gestion de personnes</h2>
 <h3 class="text-primary my-5">Ajouter une nouvelle personne</h3>
-<form (ngSubmit)="ajouter()" #form="ngForm">
-  <div>
-    <label for="nom">Nom</label>
-    <input type="text" id="nom" [(ngModel)]="personne.nom" name="nom" #nom="ngModel" required />
-    @if (nom.invalid && nom.dirty) {
-      <span> Ce champ est obligatoire </span>
-    }
-  </div>
-  <div>
-    <label for="prenom">Prénom</label>
-    <input
-      type="text"
-      id="prenom"
-      [(ngModel)]="personne.prenom"
-      name="prenom"
-      required
-      #prenom="ngModel"
-    />
-    @if (prenom.invalid && prenom.dirty) {
-      <span> Ce champ est obligatoire </span>
-    }
-  </div>
-  <div>
-    <label for="age">Âge</label>
-    <input
-      type="number"
-      id="age"
-      [(ngModel)]="personne.age"
-      name="age"
-      required
-      max="120"
-      #age="ngModel"
-    />
-    @if (age.invalid && age.dirty) {
-      <span> Ce champ est obligatoire et doit contenir une valeur inférieure à 120 </span>
-    }
-  </div>
-  <button class="btn" [disabled]="form.invalid">Afficher</button>
-</form>
+<div class="container border bg-light shadow p-5 pb-4 rounded-4">
+  <app-personne-form (outputSubmit)="onSubmit($event)" buttonLabel="Ajouter"></app-personne-form>
+</div>
+
 <h3 class="text-primary my-5">Liste des personnes</h3>
 <ul>
   @for (p of personnes(); track $index) {
