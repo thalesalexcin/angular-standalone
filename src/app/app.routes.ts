@@ -26,6 +26,7 @@ import { StagiaireComponent } from './components/routage-module/stagiaire/stagia
 import { TableauComponent } from './components/routage-module/tableau/tableau';
 import { AuthComponent } from './components/auth/auth';
 import { authGuard } from './guards/auth-guard';
+import { PanierComponent } from './components/panier/panier';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -54,6 +55,7 @@ export const routes: Routes = [
   { path: 'container', component: ContainerComponent },
   { path: 'chat', component: TchatComponent },
   { path: 'auth', component: AuthComponent },
+  { path: 'panier', component: PanierComponent },
 
   //{ path: '**', component: NotFoundComponent },
   { path: 'not-found', component: NotFoundComponent },

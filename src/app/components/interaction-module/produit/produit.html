@@ -1,5 +1,6 @@
 <li>
   <span> {{ produit.nom }}, {{ produit.prix }}€, X{{ produit.quantite }} </span>
   <input type="number" id="quantite" [(ngModel)]="quantite" (change)="onQuantiteChanged()" />
-  <button type="button" [disabled]="isDisabled" (click)="ajouterAuPanier()">Ajouter</button>
+  <button type="button" (click)="ajouterAuPanier()">Ajouter</button>
+  <button type="button" (click)="enleverDuPanier()">Enlever</button>
 </li>

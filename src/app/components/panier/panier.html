@@ -1,0 +1,13 @@
+<h2>Panier</h2>
+<ul>
+  @for (item of produits(); track $index) {
+    <app-produit [produit]="item"></app-produit>
+  }
+</ul>
+
+<h3>Panier</h3>
+<ul>
+  @for (item of current(); track $index) {
+    {{ item.nom }}: {{ item.quantite }}X
+  }
+</ul>

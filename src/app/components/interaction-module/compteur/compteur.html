@@ -1,6 +1,7 @@
 <div class="d-flex gap-3 justify-content-center align-items-center">
   <button class="btn btn-dark" (click)="onDecrement()">-</button>
   <span>{{ value }}</span>
+  <span>signe: {{ signe }}</span>
   <!-- <span>{{ value$ | async }}</span> -->
   <button class="btn btn-dark" (click)="onIncrement()">+</button>
   <input type="number" [(ngModel)]="valueToAdd" />

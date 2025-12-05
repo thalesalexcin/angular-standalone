@@ -1,5 +1,7 @@
-import { Component, Input, output } from '@angular/core';
+import { Component, inject, Input, output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { Store } from '@ngrx/store';
+import { ajouterAuPanier, enleverDuPanier } from '../../../stores/panier/panier.action';
 
 @Component({
   selector: 'app-produit',
@@ -14,6 +16,8 @@ export class ProduitComponent {
 
   onProduitAjoute = output<number>();
 
+  store = inject(Store);
+
   constructor() {
     this.produit = {
       nom: '',
@@ -23,9 +27,10 @@ export class ProduitComponent {
   }
 
   ajouterAuPanier() {
-    this.isDisabled = true;
-
-    this.onProduitAjoute.emit(this.quantite * this.produit.prix);
+    this.store.dispatch(ajouterAuPanier({ name: this.produit.nom }));
+  }
+  enleverDuPanier() {
+    this.store.dispatch(enleverDuPanier({ name: this.produit.nom }));
   }
 
   onQuantiteChanged() {
@@ -37,5 +42,10 @@ export class ProduitComponent {
 export interface Produit {
   nom: string;
   prix: number;
+  quantite: number;
+}
+
+export interface LigneCommandeProduit {
+  nom: string;
   quantite: number;
 }
