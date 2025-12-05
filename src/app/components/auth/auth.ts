@@ -3,6 +3,7 @@ import { FormsModule } from '@angular/forms';
 import { Field, form } from '@angular/forms/signals';
 import { Router } from '@angular/router';
 import { User } from '../../models/user';
+import { AuthService } from '../../services/auth';
 
 @Component({
   selector: 'app-auth',
@@ -11,33 +12,26 @@ import { User } from '../../models/user';
   styleUrl: './auth.css',
 })
 export class AuthComponent {
-  login = signal<LoginRequest>({
+  user = signal<User>({
     username: '',
     password: '',
+    grantType: 'PASSWORD',
   });
 
-  users: User[] = [
-    { username: 'user', password: 'user' },
-    { username: 'admin', password: 'admin' },
-    { username: 'sadmin', password: 'sadmin' },
-  ];
   error = signal<string | null>(null);
-  loginForm = form(this.login);
+  loginForm = form(this.user);
   router = inject(Router);
+  authService = inject(AuthService);
   onSubmit() {
-    let validUser = this.users.some(
-      (u) => u.username == this.login().username && u.password == this.login().password,
-    );
-    if (validUser) {
-      localStorage.setItem('user', JSON.stringify(this.login()));
-      this.router.navigate(['/personne']);
-    } else {
-      this.error.set('Invalid credentials');
-    }
+    this.authService.authenticate(this.user()).subscribe({
+      next: (res) => {
+        localStorage.setItem('tokens', JSON.stringify(res));
+        this.router.navigate(['/personne']);
+      },
+      error: (err) => {
+        console.error(err);
+        this.error.set('Invalid credentials');
+      },
+    });
   }
-}
-
-export interface LoginRequest {
-  username: string;
-  password: string;
 }

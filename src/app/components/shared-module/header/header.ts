@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { AuthService } from '../../../services/auth';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -8,4 +10,19 @@ import { Component } from '@angular/core';
 })
 export class HeaderComponent {
   title = 'angular-standalone';
+  authService = inject(AuthService);
+  router = inject(Router);
+
+  get isConnected(): boolean {
+    return this.authService.isConnected();
+  }
+
+  login() {
+    this.router.navigate(['/auth']);
+  }
+
+  logout() {
+    this.authService.logout();
+    this.router.navigate(['/auth']);
+  }
 }
